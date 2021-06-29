@@ -6,6 +6,11 @@ const query: IResolvers = {
     estudiantes(): any {
       return database.estudiantes;
     },
+    estudiante(_: void, { id }): any {
+      return database.estudiantes.filter((estudiante) =>
+        estudiante.id === id
+      )[0];
+    },
   },
 };
 
