@@ -1,5 +1,5 @@
 type Query {
-    estudiantes: String
+    estudiantes: [Estudiante!]!
 }
 
 type Estudiante {
@@ -7,7 +7,7 @@ type Estudiante {
     name: String!
     email: String!
     website: String!
-    course: [Course]!
+    courses: [Course]!
 }
 
 type Course {
@@ -21,7 +21,7 @@ type Course {
     path: String!
     teacher: String!
     students: [Estudiante]!
-    reviews: valoracion!
+    reviews: Valoracion!
 }
 
 enum Nivel {
