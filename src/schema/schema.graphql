@@ -1,6 +1,26 @@
 type Query {
     estudiantes: [Estudiante!]!
     estudiante(id: ID!): Estudiante!
+    cursos: [Course!]!
+    curso(id: ID!): Course!
+}
+
+type Mutation {
+    cursoNuevo(curso: CursoInput!): Course!
+    modificarCurso(curso: CursoInput!): Course!
+    eliminarCurso(id: ID!): Course!
+}
+
+input CursoInput {
+    id: ID
+    title: String!
+    description: String!
+    clases: Int!
+    time: Float!
+    logo: String!
+    level: Nivel=ALL
+    path: String!
+    teacher: String!
 }
 
 type Estudiante {
@@ -21,7 +41,7 @@ type Course {
     level: Nivel!
     path: String!
     teacher: String!
-    students: [Estudiante]!
+    students: [Estudiante!]!
     reviews: Valoracion!
 }
 
